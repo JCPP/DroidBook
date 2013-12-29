@@ -9,146 +9,166 @@ import de.greenrobot.dao.DaoException;
  */
 public class Quote {
 
-    private Long id;
-    private String title;
-    /** Not-null value. */
-    private String text;
-    private String nop;
-    private String row;
-    private long bookId;
+	private Long id;
+	private String title = null;
+	/** Not-null value. */
+	private String text = null;
+	private String nop = null;
+	private String row = null;
+	private long bookId = 0;
 
-    /** Used to resolve relations */
-    private transient DaoSession daoSession;
+	/** Used to resolve relations */
+	private transient DaoSession daoSession;
 
-    /** Used for active entity operations. */
-    private transient QuoteDao myDao;
+	/** Used for active entity operations. */
+	private transient QuoteDao myDao;
 
-    private Book book;
-    private Long book__resolvedKey;
+	private Book book;
+	private Long book__resolvedKey;
 
+	/////////////////////////////////////////////////////////
+	public Quote(String text){
+		this.text = text;
+	}
+	
+	/**
+	 * Class' builder
+	 * @return Class builded
+	 */
+	public Quote build(){
+		Quote quote = new Quote();
+		quote.title = this.title;
+		quote.text = this.text;
+		quote.nop = this.nop;
+		quote.row = this.row;
+		quote.bookId = this.bookId;
 
-    public Quote() {
-    }
+		return quote;
+	}
+	/////////////////////////////////////////////////////////
 
-    public Quote(Long id) {
-        this.id = id;
-    }
+	public Quote() {
+	}
 
-    public Quote(Long id, String title, String text, String nop, String row, long bookId) {
-        this.id = id;
-        this.title = title;
-        this.text = text;
-        this.nop = nop;
-        this.row = row;
-        this.bookId = bookId;
-    }
+	public Quote(Long id) {
+		this.id = id;
+	}
 
-    /** called by internal mechanisms, do not call yourself. */
-    public void __setDaoSession(DaoSession daoSession) {
-        this.daoSession = daoSession;
-        myDao = daoSession != null ? daoSession.getQuoteDao() : null;
-    }
+	public Quote(Long id, String title, String text, String nop, String row, long bookId) {
+		this.id = id;
+		this.title = title;
+		this.text = text;
+		this.nop = nop;
+		this.row = row;
+		this.bookId = bookId;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	/** called by internal mechanisms, do not call yourself. */
+	public void __setDaoSession(DaoSession daoSession) {
+		this.daoSession = daoSession;
+		myDao = daoSession != null ? daoSession.getQuoteDao() : null;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    /** Not-null value. */
-    public String getText() {
-        return text;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setText(String text) {
-        this.text = text;
-    }
+	/** Not-null value. */
+	public String getText() {
+		return text;
+	}
 
-    public String getNop() {
-        return nop;
-    }
+	/** Not-null value; ensure this value is available before it is saved to the database. */
+	public void setText(String text) {
+		this.text = text;
+	}
 
-    public void setNop(String nop) {
-        this.nop = nop;
-    }
+	public String getNop() {
+		return nop;
+	}
 
-    public String getRow() {
-        return row;
-    }
+	public void setNop(String nop) {
+		this.nop = nop;
+	}
 
-    public void setRow(String row) {
-        this.row = row;
-    }
+	public String getRow() {
+		return row;
+	}
 
-    public long getBookId() {
-        return bookId;
-    }
+	public void setRow(String row) {
+		this.row = row;
+	}
 
-    public void setBookId(long bookId) {
-        this.bookId = bookId;
-    }
+	public long getBookId() {
+		return bookId;
+	}
 
-    /** To-one relationship, resolved on first access. */
-    public Book getBook() {
-        long __key = this.bookId;
-        if (book__resolvedKey == null || !book__resolvedKey.equals(__key)) {
-            if (daoSession == null) {
-                throw new DaoException("Entity is detached from DAO context");
-            }
-            BookDao targetDao = daoSession.getBookDao();
-            Book bookNew = targetDao.load(__key);
-            synchronized (this) {
-                book = bookNew;
-            	book__resolvedKey = __key;
-            }
-        }
-        return book;
-    }
+	public void setBookId(long bookId) {
+		this.bookId = bookId;
+	}
 
-    public void setBook(Book book) {
-        if (book == null) {
-            throw new DaoException("To-one property 'bookId' has not-null constraint; cannot set to-one to null");
-        }
-        synchronized (this) {
-            this.book = book;
-            bookId = book.getId();
-            book__resolvedKey = bookId;
-        }
-    }
+	/** To-one relationship, resolved on first access. */
+	public Book getBook() {
+		long __key = this.bookId;
+		if (book__resolvedKey == null || !book__resolvedKey.equals(__key)) {
+			if (daoSession == null) {
+				throw new DaoException("Entity is detached from DAO context");
+			}
+			BookDao targetDao = daoSession.getBookDao();
+			Book bookNew = targetDao.load(__key);
+			synchronized (this) {
+				book = bookNew;
+				book__resolvedKey = __key;
+			}
+		}
+		return book;
+	}
 
-    /** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */
-    public void delete() {
-        if (myDao == null) {
-            throw new DaoException("Entity is detached from DAO context");
-        }    
-        myDao.delete(this);
-    }
+	public void setBook(Book book) {
+		if (book == null) {
+			throw new DaoException("To-one property 'bookId' has not-null constraint; cannot set to-one to null");
+		}
+		synchronized (this) {
+			this.book = book;
+			bookId = book.getId();
+			book__resolvedKey = bookId;
+		}
+	}
 
-    /** Convenient call for {@link AbstractDao#update(Object)}. Entity must attached to an entity context. */
-    public void update() {
-        if (myDao == null) {
-            throw new DaoException("Entity is detached from DAO context");
-        }    
-        myDao.update(this);
-    }
+	/** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */
+	public void delete() {
+		if (myDao == null) {
+			throw new DaoException("Entity is detached from DAO context");
+		}    
+		myDao.delete(this);
+	}
 
-    /** Convenient call for {@link AbstractDao#refresh(Object)}. Entity must attached to an entity context. */
-    public void refresh() {
-        if (myDao == null) {
-            throw new DaoException("Entity is detached from DAO context");
-        }    
-        myDao.refresh(this);
-    }
+	/** Convenient call for {@link AbstractDao#update(Object)}. Entity must attached to an entity context. */
+	public void update() {
+		if (myDao == null) {
+			throw new DaoException("Entity is detached from DAO context");
+		}    
+		myDao.update(this);
+	}
+
+	/** Convenient call for {@link AbstractDao#refresh(Object)}. Entity must attached to an entity context. */
+	public void refresh() {
+		if (myDao == null) {
+			throw new DaoException("Entity is detached from DAO context");
+		}    
+		myDao.refresh(this);
+	}
 
 }

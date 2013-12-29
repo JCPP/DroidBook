@@ -6,48 +6,67 @@ package com.jcpp.droidbook.dao;
  */
 public class Category {
 
-    private Long id;
-    /** Not-null value. */
-    private String name;
-    private String description;
+	private Long id;
+	/** Not-null value. */
+	private String name = null;
+	private String description = null;
 
-    public Category() {
-    }
 
-    public Category(Long id) {
-        this.id = id;
-    }
+	/////////////////////////////////////////////////////////
+	public Category(String name){
+		this.name = name;
+	}
+	
+	/**
+	 * Class' builder
+	 * @return Class builded
+	 */
+	public Category build(){
+		Category category = new Category();
+		category.name = this.name;
+		category.description = this.description;
 
-    public Category(Long id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
+		return category;
+	}
+	/////////////////////////////////////////////////////////
 
-    public Long getId() {
-        return id;
-    }
+	public Category() {
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Category(Long id) {
+		this.id = id;
+	}
 
-    /** Not-null value. */
-    public String getName() {
-        return name;
-    }
+	public Category(Long id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setName(String name) {
-        this.name = name;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	/** Not-null value. */
+	public String getName() {
+		return name;
+	}
+
+	/** Not-null value; ensure this value is available before it is saved to the database. */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 }
