@@ -1,5 +1,7 @@
 package com.jcpp.droidbook.dao;
 
+import java.util.List;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -25,13 +27,15 @@ public class ShelveDao extends AbstractDao<Shelve, Long> {
         public final static Property Description = new Property(2, String.class, "description", false, "DESCRIPTION");
     };
 
-
+    private DaoSession daoSession;
+    
     public ShelveDao(DaoConfig config) {
         super(config);
     }
     
     public ShelveDao(DaoConfig config, DaoSession daoSession) {
         super(config, daoSession);
+        this.daoSession = daoSession;
     }
 
     /** Creates the underlying database table. */
@@ -114,4 +118,15 @@ public class ShelveDao extends AbstractDao<Shelve, Long> {
         return true;
     }
     
+    /**
+     * Method that provide you a list of all shelves ordered by name.
+     * @return a list with all shelves.
+     */
+    public List<Shelve> getAll(){
+    	List<Shelve> shelves = daoSession.getShelveDao().queryBuilder()
+    			.where(Properties.Id.isNotNull())
+    			.orderAsc(Properties.Name)
+    			.list();
+    	return shelves;
+    }
 }

@@ -260,4 +260,15 @@ public class QuoteDao extends AbstractDao<Quote, Long> {
         return loadDeepAllAndCloseCursor(cursor);
     }
  
+    /**
+     * Method that provide you a list of all quotes ordered by id.
+     * @return a list with all quotes.
+     */
+    public List<Quote> getAll(){
+    	List<Quote> quotes = daoSession.getQuoteDao().queryBuilder()
+    			.where(Properties.Id.isNotNull())
+    			.orderAsc(Properties.Id)
+    			.list();
+    	return quotes;
+    }
 }

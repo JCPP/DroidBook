@@ -1,5 +1,7 @@
 package com.jcpp.droidbook.dao;
 
+import java.util.List;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -123,4 +125,15 @@ public class AuthorDao extends AbstractDao<Author, Long> {
         return true;
     }
     
+    /**
+     * Method that provide you a list of all authors in ordered by surname.
+     * @return a list with all authors.
+     */
+    public List<Author> getAll(){
+    	List<Author> authors = daoSession.getAuthorDao().queryBuilder()
+    			.where(Properties.Id.isNotNull())
+    			.orderAsc(Properties.Surname)
+    			.list();
+    	return authors;
+    }
 }

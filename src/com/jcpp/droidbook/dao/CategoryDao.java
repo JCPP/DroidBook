@@ -1,5 +1,7 @@
 package com.jcpp.droidbook.dao;
 
+import java.util.List;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -25,13 +27,15 @@ public class CategoryDao extends AbstractDao<Category, Long> {
         public final static Property Description = new Property(2, String.class, "description", false, "DESCRIPTION");
     };
 
-
+    private DaoSession daoSession;
+    
     public CategoryDao(DaoConfig config) {
         super(config);
     }
     
     public CategoryDao(DaoConfig config, DaoSession daoSession) {
         super(config, daoSession);
+        this.daoSession = daoSession;
     }
 
     /** Creates the underlying database table. */
@@ -112,6 +116,18 @@ public class CategoryDao extends AbstractDao<Category, Long> {
     @Override    
     protected boolean isEntityUpdateable() {
         return true;
+    }
+    
+    /**
+     * Method that provide you a list of all categories ordered by name.
+     * @return a list with all categories.
+     */
+    public List<Category> getAll(){
+    	List<Category> categories = daoSession.getCategoryDao().queryBuilder()
+    			.where(Properties.Id.isNotNull())
+    			.orderAsc(Properties.Name)
+    			.list();
+    	return categories;
     }
     
 }

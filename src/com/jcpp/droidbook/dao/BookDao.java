@@ -1,5 +1,7 @@
 package com.jcpp.droidbook.dao;
 
+import java.util.List;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -44,7 +46,7 @@ public class BookDao extends AbstractDao<Book, Long> {
         super(config, daoSession);
         this.daoSession = daoSession;
     }
-
+    
     /** Creates the underlying database table. */
     public static void createTable(SQLiteDatabase db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
@@ -193,6 +195,18 @@ public class BookDao extends AbstractDao<Book, Long> {
     @Override    
     protected boolean isEntityUpdateable() {
         return true;
+    }
+    
+    /**
+     * Method that provide you a list of all books ordered by title.
+     * @return a list with all books.
+     */
+    public List<Book> getAll(){
+    	List<Book> books = daoSession.getBookDao().queryBuilder()
+    			.where(Properties.Id.isNotNull())
+    			.orderAsc(Properties.Title)
+    			.list();
+    	return books;
     }
     
 }
