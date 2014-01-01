@@ -11,30 +11,32 @@ import de.greenrobot.dao.DaoException;
  */
 public class Book {
 
-	private Long id;
-	private String code = null;
-	/** Not-null value. */
-	private String title = null;
-	private String editor = null;
-	private java.util.Date date = null;
-	private String description = null;
-	private Integer nop = null;
-	private Integer vote = null;
-	private Double vote_avg = null;
-	private String my_comment = null;
-	private String cover_path = null;
+    private Long id;
+    private String isbn;
+    private String isbn13;
+    private String asin;
+    /** Not-null value. */
+    private String title;
+    private String editor;
+    private java.util.Date date;
+    private String description;
+    private Integer nop;
+    private Integer vote;
+    private Double vote_avg;
+    private String my_comment;
+    private String cover_path;
 
-	/** Used to resolve relations */
-	private transient DaoSession daoSession;
+    /** Used to resolve relations */
+    private transient DaoSession daoSession;
 
-	/** Used for active entity operations. */
-	private transient BookDao myDao;
+    /** Used for active entity operations. */
+    private transient BookDao myDao;
 
-	private List<BookAuthor> bookAuthorList;
-	private List<BookShelve> bookShelveList;
-	private List<BookCategory> bookCategoryList;
-	private List<Note> noteList;
-	private List<Quote> quoteList;
+    private List<BookAuthor> bookAuthorList;
+    private List<BookShelve> bookShelveList;
+    private List<BookCategory> bookCategoryList;
+    private List<Note> noteList;
+    private List<Quote> quoteList;
 
 	/////////////////////////////////////////////////////////
 	public Book(String title){
@@ -48,7 +50,9 @@ public class Book {
 	public Book build(){
 		Book book = new Book();
 		book.title = this.title;
-		book.code = this.code;
+		book.isbn = this.isbn;
+		book.isbn13 = this.isbn13;
+		book.asin = this.asin;
 		book.editor = this.editor;
 		book.date = this.date;
 		book.description = this.description;
@@ -61,256 +65,274 @@ public class Book {
 		return book;
 	}
 	/////////////////////////////////////////////////////////
-	public Book(){
+    
+    public Book() {
+    }
 
-	}
+    public Book(Long id) {
+        this.id = id;
+    }
 
-	public Book(Long id) {
-		this.id = id;
-	}
+    public Book(Long id, String isbn, String isbn13, String asin, String title, String editor, java.util.Date date, String description, Integer nop, Integer vote, Double vote_avg, String my_comment, String cover_path) {
+        this.id = id;
+        this.isbn = isbn;
+        this.isbn13 = isbn13;
+        this.asin = asin;
+        this.title = title;
+        this.editor = editor;
+        this.date = date;
+        this.description = description;
+        this.nop = nop;
+        this.vote = vote;
+        this.vote_avg = vote_avg;
+        this.my_comment = my_comment;
+        this.cover_path = cover_path;
+    }
 
-	public Book(Long id, String code, String title, String editor, java.util.Date date, String description, Integer nop, Integer vote, Double vote_avg, String my_comment, String cover_path) {
-		this.id = id;
-		this.code = code;
-		this.title = title;
-		this.editor = editor;
-		this.date = date;
-		this.description = description;
-		this.nop = nop;
-		this.vote = vote;
-		this.vote_avg = vote_avg;
-		this.my_comment = my_comment;
-		this.cover_path = cover_path;
-	}
+    /** called by internal mechanisms, do not call yourself. */
+    public void __setDaoSession(DaoSession daoSession) {
+        this.daoSession = daoSession;
+        myDao = daoSession != null ? daoSession.getBookDao() : null;
+    }
 
-	/** called by internal mechanisms, do not call yourself. */
-	public void __setDaoSession(DaoSession daoSession) {
-		this.daoSession = daoSession;
-		myDao = daoSession != null ? daoSession.getBookDao() : null;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public String getIsbn() {
+        return isbn;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public String getIsbn13() {
+        return isbn13;
+    }
 
-	/** Not-null value. */
-	public String getTitle() {
-		return title;
-	}
+    public void setIsbn13(String isbn13) {
+        this.isbn13 = isbn13;
+    }
 
-	/** Not-null value; ensure this value is available before it is saved to the database. */
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getAsin() {
+        return asin;
+    }
 
-	public String getEditor() {
-		return editor;
-	}
+    public void setAsin(String asin) {
+        this.asin = asin;
+    }
 
-	public void setEditor(String editor) {
-		this.editor = editor;
-	}
+    /** Not-null value. */
+    public String getTitle() {
+        return title;
+    }
 
-	public java.util.Date getDate() {
-		return date;
-	}
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setDate(java.util.Date date) {
-		this.date = date;
-	}
+    public String getEditor() {
+        return editor;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setEditor(String editor) {
+        this.editor = editor;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public java.util.Date getDate() {
+        return date;
+    }
 
-	public Integer getNop() {
-		return nop;
-	}
+    public void setDate(java.util.Date date) {
+        this.date = date;
+    }
 
-	public void setNop(Integer nop) {
-		this.nop = nop;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Integer getVote() {
-		return vote;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setVote(Integer vote) {
-		this.vote = vote;
-	}
+    public Integer getNop() {
+        return nop;
+    }
 
-	public Double getVote_avg() {
-		return vote_avg;
-	}
+    public void setNop(Integer nop) {
+        this.nop = nop;
+    }
 
-	public void setVote_avg(Double vote_avg) {
-		this.vote_avg = vote_avg;
-	}
+    public Integer getVote() {
+        return vote;
+    }
 
-	public String getMy_comment() {
-		return my_comment;
-	}
+    public void setVote(Integer vote) {
+        this.vote = vote;
+    }
 
-	public void setMy_comment(String my_comment) {
-		this.my_comment = my_comment;
-	}
+    public Double getVote_avg() {
+        return vote_avg;
+    }
 
-	public String getCover_path() {
-		return cover_path;
-	}
+    public void setVote_avg(Double vote_avg) {
+        this.vote_avg = vote_avg;
+    }
 
-	public void setCover_path(String cover_path) {
-		this.cover_path = cover_path;
-	}
+    public String getMy_comment() {
+        return my_comment;
+    }
 
-	/** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
-	public List<BookAuthor> getBookAuthorList() {
-		if (bookAuthorList == null) {
-			if (daoSession == null) {
-				throw new DaoException("Entity is detached from DAO context");
-			}
-			BookAuthorDao targetDao = daoSession.getBookAuthorDao();
-			List<BookAuthor> bookAuthorListNew = targetDao._queryBook_BookAuthorList(id);
-			synchronized (this) {
-				if(bookAuthorList == null) {
-					bookAuthorList = bookAuthorListNew;
-				}
-			}
-		}
-		return bookAuthorList;
-	}
+    public void setMy_comment(String my_comment) {
+        this.my_comment = my_comment;
+    }
 
-	/** Resets a to-many relationship, making the next get call to query for a fresh result. */
-	public synchronized void resetBookAuthorList() {
-		bookAuthorList = null;
-	}
+    public String getCover_path() {
+        return cover_path;
+    }
 
-	/** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
-	public List<BookShelve> getBookShelveList() {
-		if (bookShelveList == null) {
-			if (daoSession == null) {
-				throw new DaoException("Entity is detached from DAO context");
-			}
-			BookShelveDao targetDao = daoSession.getBookShelveDao();
-			List<BookShelve> bookShelveListNew = targetDao._queryBook_BookShelveList(id);
-			synchronized (this) {
-				if(bookShelveList == null) {
-					bookShelveList = bookShelveListNew;
-				}
-			}
-		}
-		return bookShelveList;
-	}
+    public void setCover_path(String cover_path) {
+        this.cover_path = cover_path;
+    }
 
-	/** Resets a to-many relationship, making the next get call to query for a fresh result. */
-	public synchronized void resetBookShelveList() {
-		bookShelveList = null;
-	}
+    /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
+    public List<BookAuthor> getBookAuthorList() {
+        if (bookAuthorList == null) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            BookAuthorDao targetDao = daoSession.getBookAuthorDao();
+            List<BookAuthor> bookAuthorListNew = targetDao._queryBook_BookAuthorList(id);
+            synchronized (this) {
+                if(bookAuthorList == null) {
+                    bookAuthorList = bookAuthorListNew;
+                }
+            }
+        }
+        return bookAuthorList;
+    }
 
-	/** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
-	public List<BookCategory> getBookCategoryList() {
-		if (bookCategoryList == null) {
-			if (daoSession == null) {
-				throw new DaoException("Entity is detached from DAO context");
-			}
-			BookCategoryDao targetDao = daoSession.getBookCategoryDao();
-			List<BookCategory> bookCategoryListNew = targetDao._queryBook_BookCategoryList(id);
-			synchronized (this) {
-				if(bookCategoryList == null) {
-					bookCategoryList = bookCategoryListNew;
-				}
-			}
-		}
-		return bookCategoryList;
-	}
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public synchronized void resetBookAuthorList() {
+        bookAuthorList = null;
+    }
 
-	/** Resets a to-many relationship, making the next get call to query for a fresh result. */
-	public synchronized void resetBookCategoryList() {
-		bookCategoryList = null;
-	}
+    /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
+    public List<BookShelve> getBookShelveList() {
+        if (bookShelveList == null) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            BookShelveDao targetDao = daoSession.getBookShelveDao();
+            List<BookShelve> bookShelveListNew = targetDao._queryBook_BookShelveList(id);
+            synchronized (this) {
+                if(bookShelveList == null) {
+                    bookShelveList = bookShelveListNew;
+                }
+            }
+        }
+        return bookShelveList;
+    }
 
-	/** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
-	public List<Note> getNoteList() {
-		if (noteList == null) {
-			if (daoSession == null) {
-				throw new DaoException("Entity is detached from DAO context");
-			}
-			NoteDao targetDao = daoSession.getNoteDao();
-			List<Note> noteListNew = targetDao._queryBook_NoteList(id);
-			synchronized (this) {
-				if(noteList == null) {
-					noteList = noteListNew;
-				}
-			}
-		}
-		return noteList;
-	}
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public synchronized void resetBookShelveList() {
+        bookShelveList = null;
+    }
 
-	/** Resets a to-many relationship, making the next get call to query for a fresh result. */
-	public synchronized void resetNoteList() {
-		noteList = null;
-	}
+    /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
+    public List<BookCategory> getBookCategoryList() {
+        if (bookCategoryList == null) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            BookCategoryDao targetDao = daoSession.getBookCategoryDao();
+            List<BookCategory> bookCategoryListNew = targetDao._queryBook_BookCategoryList(id);
+            synchronized (this) {
+                if(bookCategoryList == null) {
+                    bookCategoryList = bookCategoryListNew;
+                }
+            }
+        }
+        return bookCategoryList;
+    }
 
-	/** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
-	public List<Quote> getQuoteList() {
-		if (quoteList == null) {
-			if (daoSession == null) {
-				throw new DaoException("Entity is detached from DAO context");
-			}
-			QuoteDao targetDao = daoSession.getQuoteDao();
-			List<Quote> quoteListNew = targetDao._queryBook_QuoteList(id);
-			synchronized (this) {
-				if(quoteList == null) {
-					quoteList = quoteListNew;
-				}
-			}
-		}
-		return quoteList;
-	}
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public synchronized void resetBookCategoryList() {
+        bookCategoryList = null;
+    }
 
-	/** Resets a to-many relationship, making the next get call to query for a fresh result. */
-	public synchronized void resetQuoteList() {
-		quoteList = null;
-	}
+    /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
+    public List<Note> getNoteList() {
+        if (noteList == null) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            NoteDao targetDao = daoSession.getNoteDao();
+            List<Note> noteListNew = targetDao._queryBook_NoteList(id);
+            synchronized (this) {
+                if(noteList == null) {
+                    noteList = noteListNew;
+                }
+            }
+        }
+        return noteList;
+    }
 
-	/** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */
-	public void delete() {
-		if (myDao == null) {
-			throw new DaoException("Entity is detached from DAO context");
-		}    
-		myDao.delete(this);
-	}
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public synchronized void resetNoteList() {
+        noteList = null;
+    }
 
-	/** Convenient call for {@link AbstractDao#update(Object)}. Entity must attached to an entity context. */
-	public void update() {
-		if (myDao == null) {
-			throw new DaoException("Entity is detached from DAO context");
-		}    
-		myDao.update(this);
-	}
+    /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
+    public List<Quote> getQuoteList() {
+        if (quoteList == null) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            QuoteDao targetDao = daoSession.getQuoteDao();
+            List<Quote> quoteListNew = targetDao._queryBook_QuoteList(id);
+            synchronized (this) {
+                if(quoteList == null) {
+                    quoteList = quoteListNew;
+                }
+            }
+        }
+        return quoteList;
+    }
 
-	/** Convenient call for {@link AbstractDao#refresh(Object)}. Entity must attached to an entity context. */
-	public void refresh() {
-		if (myDao == null) {
-			throw new DaoException("Entity is detached from DAO context");
-		}    
-		myDao.refresh(this);
-	}
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public synchronized void resetQuoteList() {
+        quoteList = null;
+    }
+
+    /** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */
+    public void delete() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }    
+        myDao.delete(this);
+    }
+
+    /** Convenient call for {@link AbstractDao#update(Object)}. Entity must attached to an entity context. */
+    public void update() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }    
+        myDao.update(this);
+    }
+
+    /** Convenient call for {@link AbstractDao#refresh(Object)}. Entity must attached to an entity context. */
+    public void refresh() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }    
+        myDao.refresh(this);
+    }
 
 }

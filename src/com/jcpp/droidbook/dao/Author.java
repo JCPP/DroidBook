@@ -11,18 +11,26 @@ import de.greenrobot.dao.DaoException;
  */
 public class Author {
 
-	private Long id;
-	/** Not-null value. */
-	private String name = null;
-	private String surname = null;
+    private Long id;
+    /** Not-null value. */
+    private String name;
+    private String surname;
+    private String gender;
+    private java.util.Date born_date;
+    private java.util.Date died_date;
+    private String hometown;
+    private String nation;
+    private String description;
+    private String thumbnail_path;
 
-	/** Used to resolve relations */
-	private transient DaoSession daoSession;
+    /** Used to resolve relations */
+    private transient DaoSession daoSession;
 
-	/** Used for active entity operations. */
-	private transient AuthorDao myDao;
+    /** Used for active entity operations. */
+    private transient AuthorDao myDao;
 
-	private List<BookAuthor> bookAuthorList;
+    private List<BookAuthor> bookAuthorList;
+
 	/////////////////////////////////////////////////////////
 	public Author(String name){
 		this.name = name;
@@ -36,99 +44,170 @@ public class Author {
 		Author auth = new Author();
 		auth.name = this.name;
 		auth.surname = this.surname;
+		auth.gender = this.gender;
+		auth.born_date = this.born_date;
+		auth.died_date = this.died_date;
+		auth.hometown = this.hometown;
+		auth.nation = this.nation;
+		auth.description = this.description;
+		auth.thumbnail_path = this.thumbnail_path;
 
 		return auth;
 	}
 	/////////////////////////////////////////////////////////
-	public Author() {
-	}
+    
+    public Author() {
+    }
 
-	public Author(Long id) {
-		this.id = id;
-	}
+    public Author(Long id) {
+        this.id = id;
+    }
 
-	public Author(Long id, String name, String surname) {
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
-	}
-	/////////////////////////////////////////////////////////
-	/** called by internal mechanisms, do not call yourself. */
-	public void __setDaoSession(DaoSession daoSession) {
-		this.daoSession = daoSession;
-		myDao = daoSession != null ? daoSession.getAuthorDao() : null;
-	}
+    public Author(Long id, String name, String surname, String gender, java.util.Date born_date, java.util.Date died_date, String hometown, String nation, String description, String thumbnail_path) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.born_date = born_date;
+        this.died_date = died_date;
+        this.hometown = hometown;
+        this.nation = nation;
+        this.description = description;
+        this.thumbnail_path = thumbnail_path;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    /** called by internal mechanisms, do not call yourself. */
+    public void __setDaoSession(DaoSession daoSession) {
+        this.daoSession = daoSession;
+        myDao = daoSession != null ? daoSession.getAuthorDao() : null;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	/** Not-null value. */
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	/** Not-null value; ensure this value is available before it is saved to the database. */
-	public void setName(String name) {
-		this.name = name;
-	}
+    /** Not-null value. */
+    public String getName() {
+        return name;
+    }
 
-	public String getSurname() {
-		return surname;
-	}
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
+    public String getSurname() {
+        return surname;
+    }
 
-	/** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
-	public List<BookAuthor> getBookAuthorList() {
-		if (bookAuthorList == null) {
-			if (daoSession == null) {
-				throw new DaoException("Entity is detached from DAO context");
-			}
-			BookAuthorDao targetDao = daoSession.getBookAuthorDao();
-			List<BookAuthor> bookAuthorListNew = targetDao._queryAuthor_BookAuthorList(id);
-			synchronized (this) {
-				if(bookAuthorList == null) {
-					bookAuthorList = bookAuthorListNew;
-				}
-			}
-		}
-		return bookAuthorList;
-	}
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
-	/** Resets a to-many relationship, making the next get call to query for a fresh result. */
-	public synchronized void resetBookAuthorList() {
-		bookAuthorList = null;
-	}
+    public String getGender() {
+        return gender;
+    }
 
-	/** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */
-	public void delete() {
-		if (myDao == null) {
-			throw new DaoException("Entity is detached from DAO context");
-		}    
-		myDao.delete(this);
-	}
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-	/** Convenient call for {@link AbstractDao#update(Object)}. Entity must attached to an entity context. */
-	public void update() {
-		if (myDao == null) {
-			throw new DaoException("Entity is detached from DAO context");
-		}    
-		myDao.update(this);
-	}
+    public java.util.Date getBorn_date() {
+        return born_date;
+    }
 
-	/** Convenient call for {@link AbstractDao#refresh(Object)}. Entity must attached to an entity context. */
-	public void refresh() {
-		if (myDao == null) {
-			throw new DaoException("Entity is detached from DAO context");
-		}    
-		myDao.refresh(this);
-	}
+    public void setBorn_date(java.util.Date born_date) {
+        this.born_date = born_date;
+    }
+
+    public java.util.Date getDied_date() {
+        return died_date;
+    }
+
+    public void setDied_date(java.util.Date died_date) {
+        this.died_date = died_date;
+    }
+
+    public String getHometown() {
+        return hometown;
+    }
+
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getThumbnail_path() {
+        return thumbnail_path;
+    }
+
+    public void setThumbnail_path(String thumbnail_path) {
+        this.thumbnail_path = thumbnail_path;
+    }
+
+    /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
+    public List<BookAuthor> getBookAuthorList() {
+        if (bookAuthorList == null) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            BookAuthorDao targetDao = daoSession.getBookAuthorDao();
+            List<BookAuthor> bookAuthorListNew = targetDao._queryAuthor_BookAuthorList(id);
+            synchronized (this) {
+                if(bookAuthorList == null) {
+                    bookAuthorList = bookAuthorListNew;
+                }
+            }
+        }
+        return bookAuthorList;
+    }
+
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public synchronized void resetBookAuthorList() {
+        bookAuthorList = null;
+    }
+
+    /** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */
+    public void delete() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }    
+        myDao.delete(this);
+    }
+
+    /** Convenient call for {@link AbstractDao#update(Object)}. Entity must attached to an entity context. */
+    public void update() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }    
+        myDao.update(this);
+    }
+
+    /** Convenient call for {@link AbstractDao#refresh(Object)}. Entity must attached to an entity context. */
+    public void refresh() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }    
+        myDao.refresh(this);
+    }
 
 }

@@ -25,6 +25,13 @@ public class AuthorDao extends AbstractDao<Author, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
         public final static Property Surname = new Property(2, String.class, "surname", false, "SURNAME");
+        public final static Property Gender = new Property(3, String.class, "gender", false, "GENDER");
+        public final static Property Born_date = new Property(4, java.util.Date.class, "born_date", false, "BORN_DATE");
+        public final static Property Died_date = new Property(5, java.util.Date.class, "died_date", false, "DIED_DATE");
+        public final static Property Hometown = new Property(6, String.class, "hometown", false, "HOMETOWN");
+        public final static Property Nation = new Property(7, String.class, "nation", false, "NATION");
+        public final static Property Description = new Property(8, String.class, "description", false, "DESCRIPTION");
+        public final static Property Thumbnail_path = new Property(9, String.class, "thumbnail_path", false, "THUMBNAIL_PATH");
     };
 
     private DaoSession daoSession;
@@ -45,7 +52,14 @@ public class AuthorDao extends AbstractDao<Author, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'AUTHOR' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
                 "'NAME' TEXT NOT NULL ," + // 1: name
-                "'SURNAME' TEXT);"); // 2: surname
+                "'SURNAME' TEXT," + // 2: surname
+                "'GENDER' TEXT," + // 3: gender
+                "'BORN_DATE' INTEGER," + // 4: born_date
+                "'DIED_DATE' INTEGER," + // 5: died_date
+                "'HOMETOWN' TEXT," + // 6: hometown
+                "'NATION' TEXT," + // 7: nation
+                "'DESCRIPTION' TEXT," + // 8: description
+                "'THUMBNAIL_PATH' TEXT);"); // 9: thumbnail_path
     }
 
     /** Drops the underlying database table. */
@@ -69,6 +83,41 @@ public class AuthorDao extends AbstractDao<Author, Long> {
         if (surname != null) {
             stmt.bindString(3, surname);
         }
+ 
+        String gender = entity.getGender();
+        if (gender != null) {
+            stmt.bindString(4, gender);
+        }
+ 
+        java.util.Date born_date = entity.getBorn_date();
+        if (born_date != null) {
+            stmt.bindLong(5, born_date.getTime());
+        }
+ 
+        java.util.Date died_date = entity.getDied_date();
+        if (died_date != null) {
+            stmt.bindLong(6, died_date.getTime());
+        }
+ 
+        String hometown = entity.getHometown();
+        if (hometown != null) {
+            stmt.bindString(7, hometown);
+        }
+ 
+        String nation = entity.getNation();
+        if (nation != null) {
+            stmt.bindString(8, nation);
+        }
+ 
+        String description = entity.getDescription();
+        if (description != null) {
+            stmt.bindString(9, description);
+        }
+ 
+        String thumbnail_path = entity.getThumbnail_path();
+        if (thumbnail_path != null) {
+            stmt.bindString(10, thumbnail_path);
+        }
     }
 
     @Override
@@ -89,7 +138,14 @@ public class AuthorDao extends AbstractDao<Author, Long> {
         Author entity = new Author( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // name
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // surname
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // surname
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // gender
+            cursor.isNull(offset + 4) ? null : new java.util.Date(cursor.getLong(offset + 4)), // born_date
+            cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)), // died_date
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // hometown
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // nation
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // description
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // thumbnail_path
         );
         return entity;
     }
@@ -100,6 +156,13 @@ public class AuthorDao extends AbstractDao<Author, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setName(cursor.getString(offset + 1));
         entity.setSurname(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setGender(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setBorn_date(cursor.isNull(offset + 4) ? null : new java.util.Date(cursor.getLong(offset + 4)));
+        entity.setDied_date(cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)));
+        entity.setHometown(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setNation(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setDescription(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setThumbnail_path(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
      }
     
     /** @inheritdoc */
