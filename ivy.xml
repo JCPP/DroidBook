@@ -16,5 +16,10 @@
 		<dependencies>
 			<dependency name="dom4j" org="dom4j" rev="1.6.1" />
    		</dependencies>
+   		
+		<info organisation="com.restfb" module="com.restfb"/>
+    <dependencies>
+        <dependency org="com.restfb" name="restfb" rev="1.6.12"/>
+    </dependencies>
 
 </ivy-module>
