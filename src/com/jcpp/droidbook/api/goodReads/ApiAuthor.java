@@ -17,6 +17,7 @@ public class ApiAuthor extends GoodReadsManager{
 	private final String BASE_PATH_BOOK = "//GoodreadsResponse/book";
 	private final String BASE_PATH_AUTHOR = "//GoodreadsResponse/author";
 
+	@Override
 	public Author getAuthorById(String id_author) throws DocumentException{
 		Author author = new Author();
 
@@ -30,6 +31,7 @@ public class ApiAuthor extends GoodReadsManager{
 		return author;
 	}
 
+	@Override
 	public List<Author> getAuthorByCode(String code) throws DocumentException{
 		List<Author> authors = new ArrayList<Author>();
 		List<String> ids = new ArrayList<String>();

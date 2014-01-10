@@ -96,14 +96,16 @@ public class CategoryDao extends AbstractDao<Category, Long> {
      }
     
     /** @inheritdoc */
-    @Override
+    
+	@Override
     protected Long updateKeyAfterInsert(Category entity, long rowId) {
         entity.setId(rowId);
         return rowId;
     }
     
     /** @inheritdoc */
-    @Override
+    
+	@Override
     public Long getKey(Category entity) {
         if(entity != null) {
             return entity.getId();
@@ -113,7 +115,8 @@ public class CategoryDao extends AbstractDao<Category, Long> {
     }
 
     /** @inheritdoc */
-    @Override    
+    
+	@Override    
     protected boolean isEntityUpdateable() {
         return true;
     }

@@ -70,6 +70,7 @@ public class BookCategoryDao extends AbstractDao<BookCategory, Long> {
     }
 
     @Override
+	
     protected void attachEntity(BookCategory entity) {
         super.attachEntity(entity);
         entity.__setDaoSession(daoSession);
@@ -99,14 +100,16 @@ public class BookCategoryDao extends AbstractDao<BookCategory, Long> {
      }
     
     /** @inheritdoc */
-    @Override
+    
+	@Override
     protected Long updateKeyAfterInsert(BookCategory entity, long rowId) {
         entity.setId(rowId);
         return rowId;
     }
     
     /** @inheritdoc */
-    @Override
+    
+	@Override
     public Long getKey(BookCategory entity) {
         if(entity != null) {
             return entity.getId();
@@ -116,7 +119,8 @@ public class BookCategoryDao extends AbstractDao<BookCategory, Long> {
     }
 
     /** @inheritdoc */
-    @Override    
+    
+	@Override    
     protected boolean isEntityUpdateable() {
         return true;
     }

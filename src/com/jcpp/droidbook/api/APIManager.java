@@ -5,7 +5,7 @@ package com.jcpp.droidbook.api;
  * chiamandole in ordine di efficienza 
  * e potrebbe tener traccia dei contenuti non trovati con dei log.
  * 
- * È una classe single-ton.
+ * ï¿½ una classe single-ton.
  */
 
 import java.util.ArrayList;

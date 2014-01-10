@@ -100,6 +100,7 @@ public class BookShelveDao extends AbstractDao<BookShelve, Long> {
     
     /** @inheritdoc */
     @Override
+	
     protected Long updateKeyAfterInsert(BookShelve entity, long rowId) {
         entity.setId(rowId);
         return rowId;
@@ -107,6 +108,7 @@ public class BookShelveDao extends AbstractDao<BookShelve, Long> {
     
     /** @inheritdoc */
     @Override
+	
     public Long getKey(BookShelve entity) {
         if(entity != null) {
             return entity.getId();
@@ -116,7 +118,8 @@ public class BookShelveDao extends AbstractDao<BookShelve, Long> {
     }
 
     /** @inheritdoc */
-    @Override    
+    @Override
+	    
     protected boolean isEntityUpdateable() {
         return true;
     }

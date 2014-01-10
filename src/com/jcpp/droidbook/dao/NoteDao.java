@@ -80,6 +80,7 @@ public class NoteDao extends AbstractDao<Note, Long> {
 	}
 
 	@Override
+	
 	protected void attachEntity(Note entity) {
 		super.attachEntity(entity);
 		entity.__setDaoSession(daoSession);
@@ -114,12 +115,14 @@ public class NoteDao extends AbstractDao<Note, Long> {
 
 	/** @inheritdoc */
 	@Override
+	
 	protected Long updateKeyAfterInsert(Note entity, long rowId) {
 		entity.setId(rowId);
 		return rowId;
 	}
 
 	/** @inheritdoc */
+	
 	@Override
 	public Long getKey(Note entity) {
 		if(entity != null) {
@@ -130,6 +133,7 @@ public class NoteDao extends AbstractDao<Note, Long> {
 	}
 
 	/** @inheritdoc */
+	
 	@Override    
 	protected boolean isEntityUpdateable() {
 		return true;

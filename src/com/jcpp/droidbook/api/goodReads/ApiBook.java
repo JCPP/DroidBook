@@ -20,13 +20,14 @@ public class ApiBook extends GoodReadsManager{
 	 * @param code Isbn, isbn13 or Asin.
 	 * @return Book builded.
 	 */
+	@Override
 	public Book getBookByCode(String code) throws DocumentException{
 		Book book = new Book();
 		
 		// Get the SAXReader object
 		SAXReader reader = new SAXReader();
 		doc = reader.read(buildURL_book_isbn(code));
-		if(/*condizione per cui c'è il libro*/ null == null){
+		if(/*condizione per cui c'ï¿½ il libro*/ null == null){
 			book.setIsbn(getIsbn());
 			book.setIsbn13(getIsbn13());
 			book.setAsin(getAsin());

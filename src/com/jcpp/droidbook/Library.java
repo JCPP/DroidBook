@@ -1,40 +1,47 @@
 package com.jcpp.droidbook;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.jcpp.droidbook.dao.Book;
+import com.jcpp.droidbook.dao.BookDao;
+import com.jcpp.droidbook.dao.DaoSession;
 
 
 public class Library extends Activity {
 
-
+	private List<Book> bookList;
+	private DaoSession ds;
+    private BookDao bookDao;
+    
 	@Override
 	  protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.library_layout);
-
-	    final ListView listview = (ListView) findViewById(R.id.listView1);
-	    String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-	        "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-	        "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-	        "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-	        "Android", "iPhone", "WindowsMobile" };
-
-	    final ArrayList<String> list = new ArrayList<String>();
-	    for (int i = 0; i < values.length; ++i) {
-	      list.add(values[i]);
+	    
+	    Intent i = new Intent();
+	    ds = (DaoSession) i.getParcelableExtra("Session");
+	    bookList = ds.getBookDao().getAll();
+	    
+	    final ListView list = (ListView) findViewById(R.id.listView1);
+	    final ArrayList<String> titles = new ArrayList<String>();
+	    for( int x = 0; x < bookList.size(); x++){
+	    	
+	    	titles.add(bookList.get(x).getTitle());
 	    }
+	    
+	    final ArrayAdapter array = new ArrayAdapter(this, android.R.layout.simple_list_item_1,titles);
+	    list.setAdapter(array);
+	    /*
 	    final StableArrayAdapter adapter = new StableArrayAdapter(this,
 	        android.R.layout.simple_list_item_1, list);
-	    listview.setAdapter(adapter);
+	    
 
 	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -79,6 +86,7 @@ public class Library extends Activity {
 	      return true;
 	    }
 
-	  }
+	  }*/
 
-	} 
+	}
+}

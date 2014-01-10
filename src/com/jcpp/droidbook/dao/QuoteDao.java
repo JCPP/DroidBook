@@ -93,7 +93,8 @@ public class QuoteDao extends AbstractDao<Quote, Long> {
         stmt.bindLong(6, entity.getBookId());
     }
 
-    @Override
+    
+	@Override
     protected void attachEntity(Quote entity) {
         super.attachEntity(entity);
         entity.__setDaoSession(daoSession);
@@ -132,13 +133,15 @@ public class QuoteDao extends AbstractDao<Quote, Long> {
     
     /** @inheritdoc */
     @Override
+	
     protected Long updateKeyAfterInsert(Quote entity, long rowId) {
         entity.setId(rowId);
         return rowId;
     }
     
     /** @inheritdoc */
-    @Override
+    
+	@Override
     public Long getKey(Quote entity) {
         if(entity != null) {
             return entity.getId();
@@ -148,7 +151,8 @@ public class QuoteDao extends AbstractDao<Quote, Long> {
     }
 
     /** @inheritdoc */
-    @Override    
+    @Override
+	    
     protected boolean isEntityUpdateable() {
         return true;
     }

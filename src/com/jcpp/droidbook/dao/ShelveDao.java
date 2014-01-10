@@ -96,14 +96,14 @@ public class ShelveDao extends AbstractDao<Shelve, Long> {
      }
     
     /** @inheritdoc */
-    @Override
+	@Override
     protected Long updateKeyAfterInsert(Shelve entity, long rowId) {
         entity.setId(rowId);
         return rowId;
     }
     
     /** @inheritdoc */
-    @Override
+	@Override
     public Long getKey(Shelve entity) {
         if(entity != null) {
             return entity.getId();
@@ -113,7 +113,7 @@ public class ShelveDao extends AbstractDao<Shelve, Long> {
     }
 
     /** @inheritdoc */
-    @Override    
+	@Override    
     protected boolean isEntityUpdateable() {
         return true;
     }

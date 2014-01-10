@@ -121,6 +121,7 @@ public class AuthorDao extends AbstractDao<Author, Long> {
     }
 
     @Override
+	
     protected void attachEntity(Author entity) {
         super.attachEntity(entity);
         entity.__setDaoSession(daoSession);
@@ -166,7 +167,8 @@ public class AuthorDao extends AbstractDao<Author, Long> {
      }
     
     /** @inheritdoc */
-    @Override
+    
+	@Override
     protected Long updateKeyAfterInsert(Author entity, long rowId) {
         entity.setId(rowId);
         return rowId;
@@ -174,6 +176,7 @@ public class AuthorDao extends AbstractDao<Author, Long> {
     
     /** @inheritdoc */
     @Override
+	
     public Long getKey(Author entity) {
         if(entity != null) {
             return entity.getId();
@@ -183,7 +186,8 @@ public class AuthorDao extends AbstractDao<Author, Long> {
     }
 
     /** @inheritdoc */
-    @Override    
+    
+	@Override    
     protected boolean isEntityUpdateable() {
         return true;
     }

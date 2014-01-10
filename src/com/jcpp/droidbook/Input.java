@@ -1,14 +1,10 @@
 package com.jcpp.droidbook;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-
+import android.view.inputmethod.InputMethodManager;
 public class Input extends Activity {
 	
 	@Override
@@ -22,6 +18,11 @@ public class Input extends Activity {
 	
 	public void onClick(View v) {
 
+		if(v==findViewById(R.id.editText1)){
+			
+			
+			
+		}
 		/*
 	    if(v==findViewById(R.id.ISBNinput)){ 
 	    	AlertDialog.Builder alert = new AlertDialog.Builder(this);
