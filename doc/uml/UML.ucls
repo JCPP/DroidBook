@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="com.jcpp.droidbook.ImageLoader.PhotosLoader" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/ImageLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="163" x="674" y="928"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.jcpp.droidbook.Prefs" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/Prefs.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="391" y="98"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.jcpp.droidbook.LazyImageLoadAdapter" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/LazyImageLoadAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="221" x="717" y="326"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.jcpp.droidbook.LazyImageLoadAdapter.OnItemClickListener" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/LazyImageLoadAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="791" y="757"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.jcpp.droidbook.LazyImageLoadAdapter.ViewHolder" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/LazyImageLoadAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="951" y="725"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.jcpp.droidbook.ImageLoader.BitmapDisplayer" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/ImageLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="208" x="877" y="928"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.jcpp.droidbook.ImageLoader.PhotoToLoad" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/ImageLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="181" x="1125" y="928"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.jcpp.droidbook.Library" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/Library.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="142" x="717" y="25"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.jcpp.droidbook.MemoryCache" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/MemoryCache.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="161" x="516" y="25"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.jcpp.droidbook.BookInfo" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/BookInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="208" x="899" y="25"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.jcpp.droidbook.CodeInput" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/CodeInput.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="208" x="1147" y="25"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.jcpp.droidbook.ImageLoader" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/ImageLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1237" y="731"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.jcpp.droidbook.MainActivity" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/MainActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="147" x="1395" y="25"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.jcpp.droidbook.Utils" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/Utils.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="242" x="1582" y="25"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.jcpp.droidbook.FileCache" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/FileCache.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="118" x="1864" y="25"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.jcpp.droidbook.api.APIManager" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/api/APIManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="104" y="111"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.jcpp.droidbook.api.facebook.FB_Manager" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/api/facebook/FB_Manager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="354" y="469"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.jcpp.droidbook.api.goodReads.GoodReadsManager" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/api/goodReads/GoodReadsManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="93" y="765"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.jcpp.droidbook.api.goodReads.ApiAuthor" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/api/goodReads/ApiAuthor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="328" y="775"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.jcpp.droidbook.api.goodReads.ApiBook" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/api/goodReads/ApiBook.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="597" y="487"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.jcpp.droidbook.dao.ShelveDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/ShelveDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2207" y="3402"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.jcpp.droidbook.dao.Quote" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/Quote.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1357" y="1642"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.jcpp.droidbook.dao.NoteDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/NoteDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3669" y="3685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.jcpp.droidbook.dao.BookCategory" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookCategory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2767" y="2230"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.jcpp.droidbook.dao.Shelve" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/Shelve.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1780" y="394"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.jcpp.droidbook.dao.BookShelveDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookShelveDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3395" y="3777"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.jcpp.droidbook.dao.Author" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/Author.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3507" y="2221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.jcpp.droidbook.dao.CategoryDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/CategoryDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2524" y="3437"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.jcpp.droidbook.dao.Book" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/Book.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2802" y="1402"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.jcpp.droidbook.dao.BookShelve" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookShelve.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3023" y="2230"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.jcpp.droidbook.dao.Note" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/Note.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2306" y="472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.jcpp.droidbook.dao.BookAuthor" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookAuthor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3392" y="1368"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.jcpp.droidbook.dao.BookDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1612" y="2991"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.jcpp.droidbook.dao.QuoteDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/QuoteDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1889" y="3276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="com.jcpp.droidbook.dao.AuthorDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/AuthorDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2794" y="3391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.jcpp.droidbook.dao.DaoMaster.DevOpenHelper" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/DaoMaster.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3969" y="2017"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.jcpp.droidbook.dao.BookAuthorDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookAuthorDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3973" y="3692"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="com.jcpp.droidbook.dao.BookCategoryDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookCategoryDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3112" y="3452"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.jcpp.droidbook.dao.AuthorDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/AuthorDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2740" y="3739"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="com.jcpp.droidbook.dao.Category" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/Category.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2040" y="398"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="com.jcpp.droidbook.dao.BookShelveDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookShelveDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3449" y="3362"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="com.jcpp.droidbook.dao.BookDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1608" y="3766"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="com.jcpp.droidbook.dao.NoteDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/NoteDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3742" y="3120"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="com.jcpp.droidbook.dao.BookAuthorDao" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookAuthorDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4583" y="2763"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="com.jcpp.droidbook.dao.CategoryDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/CategoryDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2452" y="3676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="com.jcpp.droidbook.dao.BookCategoryDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/BookCategoryDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3039" y="3811"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="com.jcpp.droidbook.dao.ShelveDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/ShelveDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2180" y="3676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="com.jcpp.droidbook.dao.QuoteDao.Properties" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/QuoteDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1866" y="3703"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="com.jcpp.droidbook.dao.DaoMaster" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/DaoMaster.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3969" y="371"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="com.jcpp.droidbook.dao.DaoSession" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/DaoSession.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2872" y="2783"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="com.jcpp.droidbook.dao.DaoMaster.OpenHelper" project="DroidBook" 
+    file="/DroidBook/src/com/jcpp/droidbook/dao/DaoMaster.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3707" y="870"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="52">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="53" name="noteList"/>      
+      <multiplicity id="54" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="56" name="quoteList"/>      
+      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="58">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <nesting id="59">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <association id="60">    
+    <bendpoint x="1864" y="2588"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="61" name="myDao"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="64" name="bookAuthorList"/>      
+      <multiplicity id="65" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="66">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="47"/>  
+  </nesting>  
+  <association id="67">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="68" name="categoryDao"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="71" name="shelveDao"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="74" name="daoMaster"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="77" name="daoSession"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="79">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="46"/>  
+  </nesting>  
+  <association id="80">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="81" name="authorDao"/>      
+      <multiplicity id="82" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="83">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="84" name="daoSession"/>      
+      <multiplicity id="85" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="86">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="39"/>  
+  </nesting>  
+  <association id="87">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="88" name="daoSession"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <bendpoint x="2638" y="1968"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="91" name="daoSession"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <bendpoint x="2343" y="821"/>    
+    <bendpoint x="2343" y="1968"/>    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="94" name="daoSession"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="97" name="gr_manager"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="99">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="100" name="adapter"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <bendpoint x="2088" y="1968"/>    
+    <bendpoint x="2088" y="2611"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="103" name="myDao"/>      
+      <multiplicity id="104" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="105">    
+    <bendpoint x="3120" y="821"/>    
+    <bendpoint x="3181" y="1968"/>    
+    <bendpoint x="3198" y="2611"/>    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="106" name="myDao"/>      
+      <multiplicity id="107" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="108">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="109" name="daoSession"/>      
+      <multiplicity id="110" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="111">    
+    <bendpoint x="3316" y="2824"/>    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="112" name="myDao"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="114">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="115" name="noteDao"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="117">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="118" name="imageLoader"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="121" name="daoSession"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="124" name="daoSession"/>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="127" name="daoSession"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="130" name="quoteDao"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="133" name="bookAuthorList"/>      
+      <multiplicity id="134" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="135">    
+    <bendpoint x="3160" y="2688"/>    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="136" name="myDao"/>      
+      <multiplicity id="137" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="139" name="book"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="141">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="26"/>  
+  </nesting>  
+  <nesting id="142">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="48"/>  
+  </nesting>  
+  <association id="143">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="144" name="author"/>      
+      <multiplicity id="145" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="147" name="bookCategoryList"/>      
+      <multiplicity id="148" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="150" name="bookCategoryDao"/>      
+      <multiplicity id="151" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="152">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="153" name="book"/>      
+      <multiplicity id="154" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="155">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="156" name="daoSession"/>      
+      <multiplicity id="157" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="158">    
+    <bendpoint x="3736" y="1812"/>    
+    <bendpoint x="3732" y="1940"/>    
+    <bendpoint x="3896" y="2524"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="159" name="myDao"/>      
+      <multiplicity id="160" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="161">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="162" name="book"/>      
+      <multiplicity id="163" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="164">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </nesting>  
+  <association id="165">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="166" name="book"/>      
+      <multiplicity id="167" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="168">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="45"/>  
+  </nesting>  
+  <association id="169">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="170" name="daoSession"/>      
+      <multiplicity id="171" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="172">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="173" name="daoSession"/>      
+      <multiplicity id="174" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="175">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="176" name="daoSession"/>      
+      <multiplicity id="177" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="178">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="179" name="daoSession"/>      
+      <multiplicity id="180" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="181">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="182" name="instance"/>      
+      <multiplicity id="183" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="184">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="185" name="bookShelveDao"/>      
+      <multiplicity id="186" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="187">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="188" name="book"/>      
+      <multiplicity id="189" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="190">    
+    <bendpoint x="3141" y="821"/>    
+    <bendpoint x="3272" y="1976"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="191" name="daoSession"/>      
+      <multiplicity id="192" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="193">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="194" name="apiManager"/>      
+      <multiplicity id="195" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="196">    
+    <bendpoint x="3853" y="821"/>    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="36"/>  
+  </nesting>  
+  <association id="197">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="198" name="daoSession"/>      
+      <multiplicity id="199" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="200">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="201" name="bookShelveList"/>      
+      <multiplicity id="202" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="203">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="7"/>  
+  </nesting>  
+  <generalization id="204">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="51"/>  
+  </generalization>  
+  <association id="205">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="206" name="apiManager"/>      
+      <multiplicity id="207" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="208">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="51"/>  
+  </nesting>  
+  <association id="209">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="210" name="bookDao"/>      
+      <multiplicity id="211" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="212">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="213" name="bookAuthorDao"/>      
+      <multiplicity id="214" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="215">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="42"/>  
+  </nesting>  
+  <nesting id="216">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="23"/>  
+  </nesting>  
+  <nesting id="217">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="37"/>  
+  </nesting>  
+  <association id="218">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="219" name="daoSession"/>      
+      <multiplicity id="220" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="221">    
+    <bendpoint x="3156" y="2611"/>    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="222" name="myDao"/>      
+      <multiplicity id="223" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="224">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </nesting>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
