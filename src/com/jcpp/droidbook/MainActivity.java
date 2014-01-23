@@ -2,28 +2,30 @@ package com.jcpp.droidbook;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
+
+import com.jcpp.droidbook.dao.DaoMaster;
+import com.jcpp.droidbook.dao.DaoMaster.DevOpenHelper;
+import com.jcpp.droidbook.dao.DaoSession;
+import com.jcpp.droidbook.dao.NoteDao;
 
 public class MainActivity extends Activity{
 
+	private SQLiteDatabase db;
+	private DaoMaster daoMaster;
+    public static DaoSession daoSession;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		/*
-		TextView tx = (TextView) findViewById(R.id.textView3);
-		
-		tx.setOnClickListener(new OnClickListener() {
-			@Override public void onClick(View v) {
-				Intent i = new Intent(MainActivity.this, Library.class);
-				startActivity(i);                        
-			}
-		});
-		*/
+		 DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "droidBook-db", null);
+	        db = helper.getWritableDatabase();
+	        daoMaster = new DaoMaster(db);
+	        daoSession = daoMaster.newSession();
 	}
 	
 	public void onClick(View v){
@@ -47,7 +49,7 @@ public class MainActivity extends Activity{
 		
 		if(v == findViewById(R.id.textView4)){
 			
-			Intent shelv = new Intent(MainActivity.this,Shelves.class);
+			Intent shelv = new Intent(MainActivity.this,Prefs.class);
 			
 			MainActivity.this.startActivity(shelv);
 		}

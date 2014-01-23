@@ -9,13 +9,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="32dp"
-        android:text="Add new category..."
+        android:text="Add new book...."
         android:paddingRight="5dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:background="@android:color/background_dark"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignTop="@+id/textView1"
