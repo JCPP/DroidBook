@@ -1,33 +1,33 @@
 package com.jcpp.droidbook.api.goodReads;
 
+import java.io.IOException;
 import java.sql.Date;
-import java.util.List;
 
-import org.dom4j.DocumentException;
-import org.dom4j.Node;
-import org.dom4j.io.SAXReader;
+import org.jsoup.Jsoup;
+import org.jsoup.helper.HttpConnection.Response;
+import org.jsoup.parser.Parser;
 
+import com.jcpp.droidbook.api.APIManager;
 import com.jcpp.droidbook.dao.Book;
 
-public class ApiBook extends GoodReadsManager{
-	
-	private final String BASE_PATH = "//GoodreadsResponse/book";
-	
-
+public class ApiBook{
+	APIManager apiManager = APIManager.getApiManager();
+	GoodReadsManager gr_manager = GoodReadsManager.getManager();
 	
 	/**
 	 * This method provides the book builded, ready to be insert into database.
 	 * @param code Isbn, isbn13 or Asin.
 	 * @return Book builded.
+	 * @throws IOException 
 	 */
-	@Override
-	public Book getBookByCode(String code) throws DocumentException{
+	public Book getBookByCode(String code) throws IOException{
 		Book book = new Book();
+		GoodReadsManager.setResponse((Response) Jsoup.connect(buildURL_book_isbn(code)).execute());
+		GoodReadsManager.setBody(GoodReadsManager.getResponse().body());
+		GoodReadsManager.setDoc(Jsoup.parse(GoodReadsManager.getBody(), "", Parser.xmlParser()));
 		
-		// Get the SAXReader object
-		SAXReader reader = new SAXReader();
-		doc = reader.read(buildURL_book_isbn(code));
-		if(/*condizione per cui c'ï¿½ il libro*/ null == null){
+		/*condizione per cui si può evitare di fare tutti i metodi a vuoto*/
+		if(null == null){
 			book.setIsbn(getIsbn());
 			book.setIsbn13(getIsbn13());
 			book.setAsin(getAsin());
@@ -36,7 +36,7 @@ public class ApiBook extends GoodReadsManager{
 			book.setVote_avg(getAvg_vote());
 			book.setNop(getNop());
 			book.setEditor(getPublisher());
-			book.setDescription(getDescription());		
+			book.setDescription(getDescription());
 		}
 
 		return book.build();
@@ -47,15 +47,9 @@ public class ApiBook extends GoodReadsManager{
 	 * @return isbn code.
 	 */
 	private String getIsbn() {
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
-		String title = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("isbn");
-			title = field.getText();
-		}
-		return title;
+		String isbn = null;
+		isbn = GoodReadsManager.getDoc().select("isbn").get(0).text();
+		return isbn;
 	}
 
 	/**
@@ -63,15 +57,9 @@ public class ApiBook extends GoodReadsManager{
 	 * @return isbn13 code.
 	 */
 	private String getIsbn13() {
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
-		String title = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("isbn13");
-			title = field.getText();
-		}
-		return title;
+		String isbn13 = null;
+		isbn13 = GoodReadsManager.getDoc().select("isbn13").get(0).text();
+		return isbn13;
 	}
 
 	/**
@@ -79,15 +67,9 @@ public class ApiBook extends GoodReadsManager{
 	 * @return asin code.
 	 */
 	private String getAsin() {
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
-		String title = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("asin");
-			title = field.getText();
-		}
-		return title;
+		String asin = null;
+		asin = GoodReadsManager.getDoc().select("asin").get(0).text();
+		return asin;
 	}
 
 	/**
@@ -95,20 +77,8 @@ public class ApiBook extends GoodReadsManager{
 	 * @return Book's title.
 	 */
 	private String getTitle(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
 		String title = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("title");
-			title = field.getText();/*
-			if(!field.getText().contains("#")){
-				title = field.getText();
-			}else{
-				String[] title_full = field.getText().split("");
-				title = title_full[0];
-			}*/
-		}
+		title = GoodReadsManager.getDoc().select("title").get(0).text();
 		return title;
 	}
 
@@ -117,38 +87,25 @@ public class ApiBook extends GoodReadsManager{
 	 * @return publishing date.
 	 */
 	private Date getDateofBook(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH + "/work");
+		String day = null;
+		String month = null;
+		String year = null;
 		Date date = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("original_publication_day");
-			String day;
-			if(!field.getText().isEmpty()){
-				day = field.getText();
-			}else{
-				day = "01";
-			}
-
-			field = node.selectSingleNode("original_publication_month");
-			String month;
-			if(!field.getText().isEmpty()){
-				month = field.getText();
-			}else{
-				month = "01";
-			}
-
-			field = node.selectSingleNode("original_publication_year");
-			String year;
-			if(!field.getText().isEmpty()){
-				year = field.getText();
-			}else{
-				year = "0000";
-			}
-
-			String date_temp = year + "-" + month + "-" + day;
-			date = Date.valueOf(date_temp);
-		}
+		
+		day = GoodReadsManager.getDoc().select("original_publication_day").get(0).text();
+		month = GoodReadsManager.getDoc().select("original_publication_month").get(0).text();
+		year = GoodReadsManager.getDoc().select("original_publication_year").get(0).text();
+		
+		if(day.isEmpty())
+			day = "01";
+		if(month.isEmpty())
+			month = "01";
+		if(year.isEmpty())
+			year = "0000";
+		
+		String dateString = year + "-" + month + "-" + day;
+		date = Date.valueOf(dateString);
+		
 		return date;
 	}
 
@@ -157,14 +114,9 @@ public class ApiBook extends GoodReadsManager{
 	 * @return avarage vote.
 	 */
 	private Double getAvg_vote(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
 		Double avg_vote = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("average_rating");
-			avg_vote = Double.parseDouble(field.getText());
-		}
+		avg_vote = Double.parseDouble(GoodReadsManager.getDoc().select("average_rating").get(0).text());
+		
 		return avg_vote;
 	}
 
@@ -173,14 +125,9 @@ public class ApiBook extends GoodReadsManager{
 	 * @return Number of pages.
 	 */
 	private int getNop(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
 		int nop = 0;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("num_pages");
-			nop = Integer.parseInt(field.getText());
-		}
+		nop = Integer.parseInt(GoodReadsManager.getDoc().select("num_pages").get(0).text());
+		
 		return nop;
 	}
 
@@ -189,14 +136,9 @@ public class ApiBook extends GoodReadsManager{
 	 * @return publisher or editor.
 	 */
 	private String getPublisher(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
 		String publisher = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("publisher");
-			publisher = field.getText();
-		}
+		publisher = GoodReadsManager.getDoc().select("publisher").get(0).text();
+		
 		return publisher;
 	}
 
@@ -205,15 +147,10 @@ public class ApiBook extends GoodReadsManager{
 	 * @return Description.
 	 */
 	private String getDescription() {
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
-		String descr = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("description");
-			descr = field.getText();
-		}
-		return descr;
+		String description = null;
+		description = GoodReadsManager.getDoc().select("description").get(0).text();
+		
+		return description;
 	}
 
 	/**
@@ -221,31 +158,21 @@ public class ApiBook extends GoodReadsManager{
 	 * @return image's url.
 	 */
 	public String getImage_Url(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
 		String image_url = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("image_url");
-			image_url = field.getText();
-		}
+		image_url = GoodReadsManager.getDoc().select("image_url").get(0).text();
+		
 		return image_url;
 	}
-
+	
 	/**
 	 * This method provide the small image's url from GoodReads.
 	 * @return Small image's url.
 	 */
 	public String getImage_Url_small(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH);
-		String image_url_small = null;
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("small_image_url");
-			image_url_small = field.getText();
-		}
-		return image_url_small;
+		String image_url = null;
+		image_url = GoodReadsManager.getDoc().select("small_image_url").get(0).text();
+		
+		return image_url;
 	}
 	
 	/**
@@ -254,7 +181,7 @@ public class ApiBook extends GoodReadsManager{
 	 * @return the URL for request
 	 */
 	protected String buildURL_book_isbn(String code){
-		String httpRequest = "http://www.goodreads.com/book/isbn?format=xml&isbn="+code+"&key="+GR_KEY;
+		String httpRequest = "http://www.goodreads.com/book/isbn?format=xml&isbn="+code+"&key="+ apiManager.GR_KEY;
 		return httpRequest;
 	}
 

@@ -8,10 +8,7 @@ package com.jcpp.droidbook.api;
  * � una classe single-ton.
  */
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.dom4j.DocumentException;
+import java.io.IOException;
 
 import com.jcpp.droidbook.api.goodReads.GoodReadsManager;
 import com.jcpp.droidbook.dao.Author;
@@ -19,11 +16,12 @@ import com.jcpp.droidbook.dao.Book;
 
 
 public class APIManager {
-	protected final String GR_KEY = "Ryk2YG5CcRzqA7OKfaAbw";
-	private APIManager instance = null;
-	private GoodReadsManager gr_manager = null;
+	public final String GR_KEY = "Ryk2YG5CcRzqA7OKfaAbw";
+	private static APIManager instance = null;
+	private static GoodReadsManager gr_manager = null;
+	
 
-	protected APIManager(){
+	private APIManager(){
 
 	}
 
@@ -31,7 +29,8 @@ public class APIManager {
 	 *
 	 * @return The ApiManager instance.
 	 */
-	public APIManager getApiManager(){
+	public static APIManager getApiManager(){
+		gr_manager = GoodReadsManager.getManager();
 		if(instance == null){
 			instance = new APIManager();
 		}
@@ -42,10 +41,11 @@ public class APIManager {
 	 * This method provides a book by its code.
 	 * @param code
 	 * @return
-	 * @throws DocumentException
+	 * @throws IOException 
 	 */
-	public Book getBookByCode(String code) throws DocumentException{
+	public Book getBookByCode(String code) throws IOException {
 		Book book = new Book();
+		
 		book = gr_manager.getBookByCode(code);
 		
 		return book;
@@ -57,10 +57,11 @@ public class APIManager {
 	 * @return
 	 * @throws DocumentException
 	 */
-	public List<Author> getListofAuthorsByBook(String code) throws DocumentException{
-		List<Author> authors = new ArrayList<Author>();
-		authors = gr_manager.getAuthorByCode(code);
-		return authors;
+	public Author getAuthorByBookCode(String code){
+		Author author = new Author();
+		author = gr_manager.getAuthorByCode(code);
+		
+		return author;
 	}
 }
 

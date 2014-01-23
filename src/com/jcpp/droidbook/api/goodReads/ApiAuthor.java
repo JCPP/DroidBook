@@ -1,52 +1,58 @@
 package com.jcpp.droidbook.api.goodReads;
+import java.io.IOException;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Node;
-import org.dom4j.io.SAXReader;
 import org.jsoup.Jsoup;
+import org.jsoup.helper.HttpConnection.Response;
+import org.jsoup.nodes.Document;
+import org.jsoup.parser.Parser;
 
+import com.jcpp.droidbook.api.APIManager;
 import com.jcpp.droidbook.dao.Author;
 
 
-public class ApiAuthor extends GoodReadsManager{
+public class ApiAuthor{
 
-	private final String BASE_PATH_BOOK = "//GoodreadsResponse/book";
-	private final String BASE_PATH_AUTHOR = "//GoodreadsResponse/author";
-
-	@Override
-	public Author getAuthorById(String id_author) throws DocumentException{
+	APIManager apiManager = APIManager.getApiManager();
+	GoodReadsManager gr_manager = GoodReadsManager.getManager();
+	
+	public Author getAuthorById(String id){
 		Author author = new Author();
 
-		// Get the SAXReader object
-		SAXReader reader = new SAXReader();
-		doc = reader.read(requestAuthorById(id_author));
-		if(/*condizione di controllo*/ null == null){
-			author = compileAuthor(author);
+		try {
+			GoodReadsManager.setResponse((Response) Jsoup.connect(requestAuthorById(id)).execute());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		GoodReadsManager.setBody(GoodReadsManager.getResponse().body());
+		GoodReadsManager.setDoc(Jsoup.parse(GoodReadsManager.getBody(), "", Parser.xmlParser()));
+		author = compileAuthor(author);
 
 		return author;
 	}
 
-	@Override
-	public List<Author> getAuthorByCode(String code) throws DocumentException{
-		List<Author> authors = new ArrayList<Author>();
-		List<String> ids = new ArrayList<String>();
-
-		// Get the SAXReader object
-		SAXReader reader = new SAXReader();
-		doc = reader.read(requestBookByCode(code));
-		ids = getIdAuthors();
-		for(String id : ids){
-			doc = reader.read(requestAuthorById(id));
-			Author auth = new Author();
-			auth = compileAuthor(auth);
-			authors.add(auth);	
+	public Author getAuthorByBookCode(String code) {
+		Author author = new Author();
+		String id = null;
+		try {
+			GoodReadsManager.setResponse((Response) Jsoup.connect(requestBookByCode(code)).execute());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		return authors;
+		GoodReadsManager.setBody(GoodReadsManager.getResponse().body());
+		GoodReadsManager.setDoc(Jsoup.parse(GoodReadsManager.getBody(), "", Parser.xmlParser()));
+		id = GoodReadsManager.getDoc().select("authors").select("author").select("id").get(0).text();
+		//
+		try {
+			GoodReadsManager.setResponse((Response) Jsoup.connect(requestAuthorById(id)).execute());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		GoodReadsManager.setBody(GoodReadsManager.getResponse().body());
+		GoodReadsManager.setDoc(Jsoup.parse(GoodReadsManager.getBody(), "", Parser.xmlParser()));
+		compileAuthor(author);
+
+		return author;
 	}
 
 	/**
@@ -55,13 +61,7 @@ public class ApiAuthor extends GoodReadsManager{
 	 */
 	private String getName(){
 		String name_full = null;
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("name");
-			name_full = field.getText();
-		}
+		name_full = GoodReadsManager.getDoc().select("name").get(0).text();
 
 		String[] names = name_full.split(" ");
 		return names[0];
@@ -73,15 +73,9 @@ public class ApiAuthor extends GoodReadsManager{
 	 */
 	private String getSurname(){
 		String name_full = null;
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("name");
-			name_full = field.getText();
-		}
-
+		name_full = GoodReadsManager.getDoc().select("name").get(0).text();
 		String[] names = name_full.split(" ");
+
 		return names[names.length-1];
 	}
 
@@ -91,13 +85,7 @@ public class ApiAuthor extends GoodReadsManager{
 	 */
 	private String getGender(){
 		String gender = null;
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("gender");
-			gender = field.getText();
-		}
+		gender = GoodReadsManager.getDoc().select("gender").get(0).text();
 
 		return gender;
 	}
@@ -107,14 +95,9 @@ public class ApiAuthor extends GoodReadsManager{
 	 * @return
 	 */
 	private Date getBornDate(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
 		Date date = null;
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("born_at");
-			if(!field.getText().equals("")){
-				date = Date.valueOf(field.getText().replace("/", "-"));
-			}
+		if(!GoodReadsManager.getDoc().select("born_at").get(0).text().equals("")){
+			date = Date.valueOf(GoodReadsManager.getDoc().select("born_at").get(0).text().replace("/", "-"));
 		}
 		return date;
 	}
@@ -124,14 +107,9 @@ public class ApiAuthor extends GoodReadsManager{
 	 * @return
 	 */
 	private Date getDiedDate(){
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
 		Date date = null;
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("died_at");
-			if(!field.getText().equals("")){
-				date = Date.valueOf(field.getText().replace("/", "-"));
-			}
+		if(!GoodReadsManager.getDoc().select("died_at").get(0).text().equals("")){
+			date = Date.valueOf(GoodReadsManager.getDoc().select("died_at").get(0).text().replace("/", "-"));
 		}
 		return date;
 	}
@@ -142,13 +120,7 @@ public class ApiAuthor extends GoodReadsManager{
 	 */
 	private String getHometown(){
 		String hometown_full = null;
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("hometown");
-			hometown_full = field.getText();
-		}
+		hometown_full = GoodReadsManager.getDoc().select("hometown").get(0).text();
 
 		String[] hometown = hometown_full.split(",");
 		return hometown[0];
@@ -160,13 +132,8 @@ public class ApiAuthor extends GoodReadsManager{
 	 */
 	private String getNation(){
 		String hometown_full = null;
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
+		hometown_full = GoodReadsManager.getDoc().select("hometown").get(0).text();
 
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("hometown");
-			hometown_full = field.getText();
-		}
 		String[] hometown = hometown_full.split(",");
 		if(hometown[0].equals(hometown[hometown.length-1])){
 			hometown[hometown.length-1] = "n/d";
@@ -180,13 +147,7 @@ public class ApiAuthor extends GoodReadsManager{
 	 */
 	private String getDescription(){
 		String description = null;
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("about");
-			description = field.getText();
-		}
+		description = GoodReadsManager.getDoc().select("description").get(0).text();
 
 		return Jsoup.parse(description).text();
 	}
@@ -201,7 +162,7 @@ public class ApiAuthor extends GoodReadsManager{
 		author.setNation(getNation());
 		author.setDescription(getDescription());
 		author.build();
-		
+
 		return author;
 	}
 
@@ -211,20 +172,14 @@ public class ApiAuthor extends GoodReadsManager{
 	 */
 	public String getThumbnail(Document doc){
 		String thumbnail = null;
-		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_AUTHOR);
-
-		for(Node node : nodes){
-			Node field = node.selectSingleNode("small_image_url");
-			thumbnail = field.getText();
-		}
+		thumbnail = GoodReadsManager.getDoc().select("small_image_url").get(0).text();
 		return thumbnail;
 	}
 
-	private List<String> getIdAuthors(){
+	/*private List<String> getIdAuthors(){
 		List<String> ids = new ArrayList<String>();
 		@SuppressWarnings("unchecked")
-		List<Node> nodes = doc.selectNodes(BASE_PATH_BOOK + "/authors/author");
+		List<Node> nodes = GoodReadsManager.doc.selectNodes(BASE_PATH_BOOK + "/authors/author");
 		for(Node node : nodes){
 			Node field = node.selectSingleNode("id");
 			ids.add(field.getText());
@@ -238,12 +193,12 @@ public class ApiAuthor extends GoodReadsManager{
 	 * @return the string builded.
 	 */
 	private String requestAuthorById(String id_author){
-		String httpRequest = "https://www.goodreads.com/author/show/"+id_author+".xml?key="+GR_KEY;
+		String httpRequest = "https://www.goodreads.com/author/show/"+id_author+".xml?key="+apiManager.GR_KEY;
 		return httpRequest;
 	}
 
 	private String requestBookByCode(String code){
-		String httpRequest = "http://www.goodreads.com/book/isbn?format=xml&isbn="+code+"&key="+GR_KEY;
+		String httpRequest = "http://www.goodreads.com/book/isbn?format=xml&isbn="+code+"&key="+apiManager.GR_KEY;
 		return httpRequest;
 	}
 }
