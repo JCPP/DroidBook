@@ -1,0 +1,80 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="It starts with why 
+One thing 
+I don't know why 
+It doesn't even matter how hard you try 
+Keep that in mind 
+I designed this rhyme 
+To explain in due time 
+All I know 
+Time is a valuable thing 
+Watch it fly by as the pendulum swings 
+Watch it count down to the end of the day 
+The clock ticks life away 
+
+It's so unreal 
+Didn't look out below 
+Watch the time go right out the window 
+Trying to hold on, but you didn't even know 
+Wasted it all just to watch you go 
+I kept everything inside 
+And even though I tried, it all fell apart 
+What it meant to me 
+Will eventually be a memory of a time when 
+"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Commenti"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One thing, I don't know why 
+It doesn't even matter how hard you try 
+Keep that in mind 
+I designed this rhyme 
+To remind myself how 
+I tried so hard 
+In spite of the way you were mocking me 
+Acting like I was part of your property 
+Remembering all the times you fought with me 
+I'm surprised it got so far 
+Things aren't the way they were before 
+You wouldn't even recognize me anymore 
+Not that you knew me back then 
+But it all comes back to me in the end 
+You kept everything inside 
+And even though I tried, it all fell apart 
+What it meant to me will eventually be a memory of a time when 
+"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+</ScrollView>
