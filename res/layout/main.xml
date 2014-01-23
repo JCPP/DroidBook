@@ -11,7 +11,7 @@
         android:clickable="true"
         android:onClick="onClick"
         android:paddingTop="30dp"
-        android:text="ISBN Scann"
+        android:text="ISBN Scan"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
